@@ -38,29 +38,9 @@ $('.reservation-form').on('submit', function(e){
 
 function getReservations(){
 
-  database.ref('reservations').on(function(results) {
+console.log("get Reservations");
 
-
-    var allReservations = results.val();
-
-   $('.reservations').empty();
-    for (var reservation in allReservations) {
-
-      // Create an object literal + HandleBars
-      var context = {
-        name: allReservations[reservation].name,
-        day: allReservations[reservation].day,
-        reservationId: reservation
-      };
-      var source = $("#reservation-template").html();
-      var template = Handlebars.compile(source);
-      var reservationListItem = template(context);
-      $('.reservations').append(reservationListItem);
-
-    }
-
-  });
 }
-// When page loads, get reservations
+// When page loads, get reservations from database
 getReservations();
 
