@@ -56,7 +56,6 @@ function getReservations(){
         reservationId: reservation
       };
 
-
       // Get the HTML from our Handlebars reservation template
       var source = $("#reservation-template").html();
 
@@ -76,6 +75,6 @@ function getReservations(){
 }
 
 // When page loads, get reservations
-getReservations();)
+getReservations();
 
 
