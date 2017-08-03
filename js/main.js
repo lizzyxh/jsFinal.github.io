@@ -27,11 +27,14 @@ $('.reservation-day li').on('click', function(e){
 
 //Step 4:  Update the name property
 
-$('reservations').on('submit', function(e){
+$('.reservation-form').on('submit', function(e){
   e.preventDefault(); 
   reservationData.name = $('.reservation-name').val();
   console.log("completed step 4");
+  // create a section for reservations data in your db
     var reservationDayData = database.ref('reservation-day');
     reservationDayData.push(reservationData);
 });
+
+
 
