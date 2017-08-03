@@ -38,7 +38,7 @@ $('.reservation-form').on('submit', function(e){
 
 function getReservations(){
 
-  database.ref().on(function(results) {
+  database.ref('reservations').on(function(results) {
 
     // Get all reservations stored in the results we received back from Firebase
     var allReservations = results.val();
