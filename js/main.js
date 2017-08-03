@@ -72,8 +72,6 @@ function getReservations(){
 
   });
 
-}
-
 // When page loads, get reservations
 getReservations();
 
