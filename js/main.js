@@ -40,32 +40,21 @@ function getReservations(){
 
   database.ref('reservations').on(function(results) {
 
-    // Get all reservations stored in the results we received back from Firebase
+
     var allReservations = results.val();
 
-    // remove all list reservations from DOM before appending list reservations
-    $('.reservations').empty();
-
-    // iterate (loop) through all reservations coming from database call
+   $('.reservations').empty();
     for (var reservation in allReservations) {
 
-      // Create an object literal with the data we'll pass to Handlebars
+      // Create an object literal + HandleBars
       var context = {
         name: allReservations[reservation].name,
         day: allReservations[reservation].day,
         reservationId: reservation
       };
-
-      // Get the HTML from our Handlebars reservation template
       var source = $("#reservation-template").html();
-
-      // Compile our Handlebars template
       var template = Handlebars.compile(source);
-
-      // Pass the data for this reservation (context) into the template
       var reservationListItem = template(context);
-
-      // Append newly created reservation to reservations list.
       $('.reservations').append(reservationListItem);
 
     }
