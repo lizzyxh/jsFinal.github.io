@@ -42,12 +42,53 @@
 	background-color: rgba(0,0,0, .2);
 }
 
+.openStatus{
+	display: none;
+	color: #fff;
+}
+
+.open{
+	display: inherit;
+	color: #fff;
+}
+.closed{
+	display: inherit;
+	color: #fff;
+}
+
+#copyright{
+	text-align: center;
+	padding: 1em;
+	background-color: #222;
+}
 
 .footer{
-	text-align: center;
-	padding: 1.2em;
+	text-align: right;
 	color: #9d9d9d;
 	background-color: #222;
-	height: 8vh;
+	margin: 0 auto;
+	/*height: 15em;*/
+}
+.locationInfo{
+	float: left;
+	margin:.2em auto;
+	padding: 2em;
+	text-align: left;
+}
+#twiterAPI{
+	margin: 3.1em auto;
+    padding: 2em;
+    float: left;
+    width: 500px;
+    height: 150px;
+    background: pink;
+}
 
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }

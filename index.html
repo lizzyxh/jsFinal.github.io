@@ -70,13 +70,14 @@
 			<thead>
 				<th>Name</th>
 				<th>Day</th>
+				<!-- <th>Cancel Your Reservation</th> -->
 			</thead>
 			<tbody class="reservation-list"></tbody>
 		</table>
 	</div>
 	<!-- Map -->
+	<div class=" col-md-12 container-fluid><h4 class="container-fluid"><h4>Get Directions</h4></div>
 	<div id="map" class="container-fluid restaurant-locator">
-
 	</div>
 
   <!-- Firebase -->
@@ -93,9 +94,17 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDbt1M_Y1NT5NIZ27O1y0L-PXT5-bEIjs&callback=initMap"
   async defer></script>
   <footer>
-		<div class="footer col-md-12 text-center container-fluid">
-			<p>© 2017 Monk Cafe, Inc.</p>
+		<div class="footer col-md-12 text-center container-fluid clearfix">
+			<div id="twiterAPI"></div>
+			<div class="locationInfo">
+				<h3>Address & Hours</h3>
+				<p>176 East Chicago Street <br> Elgin, IL, United States <br>847.697.2583</p>
+				<p>7AM-11PM, Every Day</p>
+				<p id="open" class ="openStatus">We are currently OPEN.</p>
+				<p id="closed" class ="openStatus">We are currently CLOSED.</p>
+			</div>
 		</div>
+		<p class="footer col-md-12 text-center container-fluid" id="copyright">© 2017 Monk Cafe, Inc.</p>
    </footer>
 
 </body>
