@@ -77,5 +77,10 @@ function initMap(){
     zoom: 10,
     scrollwheel: false
   });
+  var marker = new google.maps.Marker({
+    position: {lat: 40.8054491, lng: -73.9654415},
+    map: map,
+    title: 'Monks Café'
+  });
 }
 
