@@ -72,24 +72,29 @@ getReservations();
 
 //Step7 Define the callback used by the Google Maps API to initialize the app's map.
 function initMap(){
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var styles = [
+    {
+      {
+        stylers:[ { hue: '#9d9d9d'}, {saturation: -35} ]
+      }
+      {
+        featureType: "road"
+        elementType: 'geometry',
+        stylers:[ { lightness: '100'},{ visibility: 'simplified'} ]
+      }
+      {
+        featureType: "road"
+        elementType: 'lables',
+        stylers:[ { visibility: 'off'} ]
+      }
+    }
+  ];
+   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.8054491, lng: -73.9654415},
     zoom: 13,
-    scrollwheel: false
+    scrollwheel: false,
+    stylers: styles
   });
-  var styles = [
-  {
-    {
-      stylers:[ { hue: '#9d9d9d'}, {saturation: -35} ]
-    }
-    {
-      featureType: "road"
-      elementType: 'lables',
-      stylers:[ { visibility: 'off'} ]
-    }
-  }
-
-  ];
   var marker = new google.maps.Marker({
     position: {lat: 40.8054491, lng: -73.9654415},
     map: map,
