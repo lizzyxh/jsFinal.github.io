@@ -39,8 +39,46 @@ $('.reservation-form').on('submit', function(e){
 function getReservations(){
 
 console.log("get Reservations");
+  // use reference to database to listen for changes in reservations data
+  database.ref('reservations').on(function(results) {
 
+   var allReservations = results.val();
+  // remove all list reservations from DOM before appending list reservations
+   $('.reservation-list').empty();
+   // iterate (loop) through all reservations coming from database call
+   for(var reservation in allReservations){
+     // Create an object literal with the data we'll pass to Handlebars
+      var context = {
+        name: allReservations[reservation].name,
+        day: allReservations[reservation].day,
+        reservationId: reservation
+      };
+      // Get the HTML from our Handlebars reservation template
+      var source = $("#reservation-template").html();
+
+      // Compile our Handlebars template
+      var template = Handlebars.compile(source);
+
+      // Pass the data for this reservation (context) into the template
+      var reservationListItem = template(context);
+
+      // Append newly created reservation to reservations list.
+      $('.reservation-list').append(reservationListItem);
+   }
+
+  });
 }
 // When page loads, get reservations from database
 getReservations();
+
+
+
+//Step7 Define the callback used by the Google Maps API to initialize the app's map.
+function initMap(){
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.8054491, lng: -73.9654415},
+    zoom: 10,
+    scrollwheel: false
+  });
+}
 
