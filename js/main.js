@@ -40,7 +40,6 @@ function getReservations(){
 
   // use reference to database to listen for changes in reservations data
   database.ref('reservations').on(function(results) {
-
    var allReservations = results.val();
   // remove all list reservations from DOM before appending list reservations
    $('.reservation-list').empty();
@@ -70,8 +69,6 @@ function getReservations(){
 }
 // When page loads, get reservations from database
 getReservations();
-
-
 
 //Step7 Define the callback used by the Google Maps API to initialize the app's map.
 function initMap(){
