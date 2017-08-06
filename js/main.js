@@ -38,7 +38,6 @@ $('.reservation-form').on('submit', function(e){
 
 function getReservations(){
 
-console.log("get Reservations");
   // use reference to database to listen for changes in reservations data
   database.ref('reservations').on(function(results) {
 
@@ -64,6 +63,7 @@ console.log("get Reservations");
 
       // Append newly created reservation to reservations list.
       $('.reservation-list').append(reservationListItem);
+      console.log("reservations printed");
    }
 
   });
