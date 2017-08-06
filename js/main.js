@@ -117,10 +117,10 @@ function openStatus(){
   console.log("Now: "+ hours+" hundred hours");
   
   if(hours > 7 && hours < 23){
-    $('#open').removeClass("openStatus").addClass("open");
+    $('#open').attr("class", "open");
     console.log('Open');
   }else{
-    $('#closed').removeClass("openStatus").addClass("closed");
+    $('#closed').attr("class", 'closed');
     console.log('Closed');
   }
 }
