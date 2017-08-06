@@ -1,6 +1,6 @@
 .restaurant-pic {
 	height: 50vh;
-	background: url('backgroundImages/pexels-photo-296888_wo.jpeg');
+	background: url('backgroundImages/pexels-photo-296888_wo.jpg');
 	background-size: cover;
 	background-position: 0 40%;
 }
@@ -37,4 +37,6 @@
 
 .footer{
 	background-color: #2F1B00;
+	height: 25vh;
+
 }
