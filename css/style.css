@@ -35,6 +35,10 @@
 	height: 50vh;
 }
 
+.headerText{
+	margin: 1em;
+}
+
 .footer{
 	text-align: center;
 	padding: 1.2em;
