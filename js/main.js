@@ -65,7 +65,7 @@ function getReservations(){
       console.log("reservations printed");
    }
 
-  });
+  }); 
 }
 // When page loads, get reservations from database
 getReservations();
@@ -74,7 +74,7 @@ getReservations();
 function initMap(){
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.8054491, lng: -73.9654415},
-    zoom: 10,
+    zoom: 14,
     scrollwheel: false
   });
   var marker = new google.maps.Marker({
