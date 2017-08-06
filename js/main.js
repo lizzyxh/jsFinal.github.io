@@ -42,7 +42,7 @@ function getReservations(){
   database.ref('reservation-day').on('value', function(results){
    var allReservations = results.val();
   // remove all list reservations from DOM before appending list reservations
-   //$('.reservation-list').empty();
+   $('.reservation-list').empty();
    // iterate (loop) through all reservations coming from database call
    for(var reservation in allReservations){
      // Create an object literal with the data we'll pass to Handlebars
