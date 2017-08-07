@@ -160,9 +160,9 @@ function openStatus(){
   console.log('Hours Printed');
 }
 
-openStatus();
-
-
+$(document).ready(function(){
+  openStatus();
+});
 
 
 
