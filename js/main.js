@@ -71,30 +71,35 @@ function getReservations(){
 getReservations();
 
 //Step7 Define the callback used by the Google Maps API to initialize the app's map.
-// var styles = [
-//     {
-//       {
-//         stylers:[ { hue: '#9d9d9d'}, {saturation: -35} ]
-//       }
-//       {
-//         featureType: "road"
-//         elementType: 'geometry',
-//         stylers:[ { lightness: '100'},{ visibility: 'simplified'} ]
-//       }
-//       {
-//         featureType: "road"
-//         elementType: 'lables',
-//         stylers:[ { visibility: 'off'} ]
-//       }
-//     }
-// ];
+var styleMap = [
+      {
+        stylers:[ { hue: '#DDDDDD'}, {saturation: -25} ]
+      },
+      {
+        featureType: "road",
+        elementType: 'geometry',
+        stylers:[ { lightness: '100'},{ visibility: 'simplified'} ]
+      },{
+        featureType: "water",
+        elementType: 'geometry',
+        stylers:[ { color: "#CCFFFF"},{ visibility: 'simplified'} ]
+      },{
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [{ color: "#DDDDDD" }]
+      },{
+        featureType: "landscape",
+        elementType: 'lables',
+        stylers:[ { visibility: 'off'} ]
+      }
+];
 
 function initMap(){
    var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.8054491, lng: -73.9654415},
     zoom: 13,
     scrollwheel: false,
-
+    styles: styleMap
   });
    var coffeeCup = {
         url: "images/coffeeCup-01.png",
@@ -117,12 +122,18 @@ function openStatus(){
   console.log("Now: "+ hours+" hundred hours");
   
   if(hours > 7 && hours < 23){
-    $('#open').attr("class", "open");
+    $('#open').show();
+    $('#closed').hide();
+    //$('#open').removeClass("openStatus").addClass("open");
     console.log('Open');
   }else{
-    $('#closed').attr("class", 'closed');
+    $('#open').hide();
+    $('#closed').show();
+    //$('#closed').removeClass("openStatus").addClass("closed");
     console.log('Closed');
   }
+  
+  console.log('Hours Printed');
 }
 
 openStatus();

@@ -42,6 +42,7 @@
 	background-color: rgba(0,0,0, .2);
 }
 
+/*Open/Closed status section*/
 .openStatus{
 	display: none;
 	color: #fff;
@@ -86,7 +87,7 @@
 
 .clearfix:after {
   visibility: hidden;
-  display: block;
+ /* display: block;*/
   font-size: 0;
   content: " ";
   clear: both;
