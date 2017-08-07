@@ -34,6 +34,31 @@ $('.reservation-form').on('submit', function(e){
   // create a section for reservations data in your db
     var reservationDayData = database.ref('reservation-day');
     reservationDayData.push(reservationData);
+
+function validateReservation() {
+ // var valid = true; 
+  // If there is no string value in the Reservation Name Field, respond false.
+  // If there is a string value, respond true.
+  if(! $(".reservation-name").val('')) {
+    //$("#name-info").addClass('error').html("This is a required field. Please enter your name to complete the reservation.");
+    var valid = false;
+    console.log('Inside of the validateReservation function: ' + valid);
+  }else{
+    var valid = true;
+  }
+  console.log('Inside of the validateReservation function: ' + valid);
+  //return true or false
+  return valid;
+  }
+  //If the entry is valid (There is a string name in the name field) log entry valid in the console.
+  //If the entry is not valid (There is no string name in the name field) log entry Invalid in the console.
+  var valid = validateReservation();
+  console.log('Outside of the validateReservation function: Valid = ' + valid);
+  if(valid === true){
+    console.log('Entry Valid '+ valid);
+  }else if(valid === false){
+    console.log('Entry Invalid '+ valid);
+  }   
 });
 
 function getReservations(){
@@ -64,9 +89,8 @@ function getReservations(){
       $('.reservation-list').append(reservationListItem);
       console.log("reservations printed");
    }
-
-  }); 
-}
+  });  
+}  
 // When page loads, get reservations from database
 getReservations();
 
@@ -137,4 +161,9 @@ function openStatus(){
 }
 
 openStatus();
+
+
+
+
+
 
