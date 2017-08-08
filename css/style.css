@@ -86,9 +86,8 @@
 }
 
 .error {
-	  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	  color: #b94a48;
-	  display:none;
+	  border: 1px solid #b94a48;
+	  box-shadow: inset 0 1px 1px rgba(244, 4, 0, 0.73);
 	} 
 
 .clearfix:after {

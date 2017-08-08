@@ -29,36 +29,40 @@ $('.reservation-day li').on('click', function(e){
 
 $('.reservation-form').on('submit', function(e){
   e.preventDefault(); 
+  if(!isFormValid()){
+    $(document).ready(function(){
+      if($(".reservation-name").val() === ''){
+        $(".reservation-name").addClass('error'); 
+    }
+    if(!reservationData.day){
+      $(".dropdown-toggle").addClass('error'); 
+    }
+      console.log("Is Form Valid? "+isFormValid());
+  });
+    return;
+  }
   reservationData.name = $('.reservation-name').val();
   console.log("completed step 4");
   // create a section for reservations data in your db
     var reservationDayData = database.ref('reservation-day');
     reservationDayData.push(reservationData);
 
-function validateReservation() {
- // var valid = true; 
+function isFormValid() {
+  // if (something || somethingElse) {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
   // If there is no string value in the Reservation Name Field, respond false.
   // If there is a string value, respond true.
-  if(! ($(".reservation-name").val()) === '') {
-    //$("#name-info").addClass('error').html("This is a required field. Please enter your name to complete the reservation.");
+  if($(".reservation-name").val() === '' || !reservationData.day) {
     var valid = false;
-    console.log('Inside of the validateReservation function: ' + valid);
   }else{
     var valid = true;
   }
-  console.log('Inside of the validateReservation function: ' + valid);
   //return true or false
   return valid;
   }
-  //If the entry is valid (There is a string name in the name field) log entry valid in the console.
-  //If the entry is not valid (There is no string name in the name field) log entry Invalid in the console.
-  var valid = validateReservation();
-  console.log('Outside of the validateReservation function: Valid = ' + valid);
-  if(valid = true){
-    console.log('Entry Valid '+ valid);
-  }else if(valid = false){
-    console.log('Entry Invalid '+ valid);
-  }   
 });
 
 function getReservations(){
@@ -97,7 +101,7 @@ getReservations();
 //Step7 Define the callback used by the Google Maps API to initialize the app's map.
 var styleMap = [
       {
-        stylers:[ { hue: '#DDDDDD'}, {saturation: -25} ]
+        stylers:[ { hue: 'green'}, {saturation: -25} ]
       },
       {
         featureType: "road",
