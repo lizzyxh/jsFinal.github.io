@@ -39,7 +39,7 @@ function validateReservation() {
  // var valid = true; 
   // If there is no string value in the Reservation Name Field, respond false.
   // If there is a string value, respond true.
-  if(! $(".reservation-name").val('')) {
+  if(! ($(".reservation-name").val()) === '') {
     //$("#name-info").addClass('error').html("This is a required field. Please enter your name to complete the reservation.");
     var valid = false;
     console.log('Inside of the validateReservation function: ' + valid);
@@ -54,9 +54,9 @@ function validateReservation() {
   //If the entry is not valid (There is no string name in the name field) log entry Invalid in the console.
   var valid = validateReservation();
   console.log('Outside of the validateReservation function: Valid = ' + valid);
-  if(valid === true){
+  if(valid = true){
     console.log('Entry Valid '+ valid);
-  }else if(valid === false){
+  }else if(valid = false){
     console.log('Entry Invalid '+ valid);
   }   
 });
