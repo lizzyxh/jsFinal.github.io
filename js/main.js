@@ -40,7 +40,7 @@ $('.reservation-form').on('submit', function(e){
      }
     if(!reservationData.day){
       $(".dropdown-toggle").addClass('error');
-      $('.reservation-name').after('<p class="error-message">This field is required.</p>'); 
+      $('.dropdown-toggle').after('<p class="error-message">This field is required.</p>'); 
     }else{
       $('.error-message').remove();   
       $('.error').remove();  
