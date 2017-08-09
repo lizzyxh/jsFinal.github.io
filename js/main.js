@@ -33,11 +33,19 @@ $('.reservation-form').on('submit', function(e){
     $(document).ready(function(){
       if($(".reservation-name").val() === ''){
         $(".reservation-name").addClass('error'); 
-    }
+        $('.reservation-name').after('<p class="error-message">This field is required.</p>');
+    }else{
+        $('.error-message').remove(); 
+        $('.error').remove(); 
+     }
     if(!reservationData.day){
-      $(".dropdown-toggle").addClass('error'); 
-    }
+      $(".dropdown-toggle").addClass('error');
+      $('.reservation-name').after('<p class="error-message">This field is required.</p>'); 
+    }else{
+      $('.error-message').remove();   
+      $('.error').remove();  
       console.log("Is Form Valid? "+isFormValid());
+    }
   });
     return;
   }
