@@ -106,6 +106,19 @@ function getReservations(){
 // When page loads, get reservations from database
 getReservations();
 
+//To remove a reservation, please click the reservation row.
+function cancelRes(){
+  $('.reservation-list').on('click', 'tr', function(e){
+      $(this).remove();
+      console.log('reservation removed from list');
+      //Remove from Firebase database
+       var dataPiece = database.ref('reservation-day');
+     dataPiece.$remove(this);
+  });
+}
+
+cancelRes();
+
 //Step7 Define the callback used by the Google Maps API to initialize the app's map.
 var styleMap = [
       {
