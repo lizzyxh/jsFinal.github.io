@@ -13,7 +13,7 @@
 
 	<!-- template for reservation-list -->
 	<script id="reservation-template" type="text/x-handlebars-template">
-		<tr>
+		<tr data-databaseRef="{{reservationId}}">
 			<td>{{name}}</td>
 			<td>{{day}}</td>
 		</tr>
@@ -42,7 +42,7 @@
 		<!-- reservation form -->
 		<div class="row reservation-form-container">
 			<div class="col-md-12 text-center reservation-form">
-				<form class="form-inline reservations">
+				<form class="form-inline reservations" id='form'>
 				  <div class="form-group">
 				    <input type="text" class="form-control reservation-name" placeholder="Jane Doe">
 				  </div>

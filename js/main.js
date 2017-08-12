@@ -45,15 +45,22 @@ $('.reservation-form').on('submit', function(e){
       $('.error-message').remove();   
       $('.error').remove();  
       console.log("Is Form Valid? "+isFormValid());
+
     }
   });
     return;
   }
+
   reservationData.name = $('.reservation-name').val();
   console.log("completed step 4");
   // create a section for reservations data in your db
-    var reservationDayData = database.ref('reservation-day');
-    reservationDayData.push(reservationData);
+  var reservationDayData = database.ref('reservation-day');
+  var addID = reservationDayData.push(reservationData);
+  console.log(addID.key);
+
+  // clear form >>
+  $('#form')[0].reset();
+
 
 function isFormValid() {
   // if (something || somethingElse) {
@@ -88,6 +95,7 @@ function getReservations(){
         day: allReservations[reservation].day,
         reservationId: reservation
       };
+
       // Get the HTML from our Handlebars reservation template
       var source = $("#reservation-template").html();
 
@@ -109,11 +117,17 @@ getReservations();
 //To remove a reservation, please click the reservation row.
 function cancelRes(){
   $('.reservation-list').on('click', 'tr', function(e){
-      $(this).remove();
-      console.log('reservation removed from list');
-      //Remove from Firebase database
-       var dataPiece = database.ref('reservation-day');
-     dataPiece.$remove(this);
+      //Remove from Firebase database - 
+//console.log('ref', $(this).data("databaseref"));
+firebase.database().ref($(this).data('databaseref')).remove();
+  //var db = database.child($(this).data("databaseref")).remove();
+
+//console.log('database',database.ref().remove());
+      //var dataPiece = database.ref().remove();
+      //dataPiece.child().remove();
+
+      //$(this).remove();
+      //console.log('reservation removed from list');
   });
 }
 
