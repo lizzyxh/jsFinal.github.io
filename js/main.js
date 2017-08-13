@@ -117,17 +117,10 @@ getReservations();
 //To remove a reservation, please click the reservation row.
 function cancelRes(){
   $('.reservation-list').on('click', 'tr', function(e){
-      //Remove from Firebase database - 
-//console.log('ref', $(this).data("databaseref"));
-firebase.database().ref($(this).data('databaseref')).remove();
-  //var db = database.child($(this).data("databaseref")).remove();
+    var key = $(this).data('databaseref');
 
-//console.log('database',database.ref().remove());
-      //var dataPiece = database.ref().remove();
-      //dataPiece.child().remove();
-
-      //$(this).remove();
-      //console.log('reservation removed from list');
+    //Remove from Firebase database - 
+    database.ref('reservation-day').child(key).remove();
   });
 }
 
